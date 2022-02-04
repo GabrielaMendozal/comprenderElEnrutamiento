@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask (__name__)
 
@@ -16,9 +16,13 @@ def dojo():
 def nombre(nombre):
     return "¡Hola, " + nombre + " !"
 
-
-
-
+@app.route('/repeat/<int:num>/<string:palabra>')
+def repeat_word(num, palabra):
+    output = ""
+    for i in range (0,num):
+        output += f" {palabra} "
+    return output
+    
 
 
 
